@@ -1,0 +1,134 @@
+body {
+    background-color: #e6f5f2;
+    margin: 0;
+    text-align: center;
+    /* background-color: #b8f0e6; */
+    color: #40514e;
+}
+
+.Mypic {
+    border-radius: 100%;
+}
+
+.Top {
+    position: relative;
+    background-color: #E4F9F5;
+    width: 100%;
+}
+
+.cloud1 {
+    display: inline-block;
+    position: relative;
+    left: 300px;
+    margin: 20px 0px;
+    top: 20px;
+    right: 40px;
+}
+
+h2,
+h3 {
+    font-family: 'Roboto Mono', monospace;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: normal;
+    color: #66BFBF;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    /* 16px = 1em = 100% */
+    /* line-height: 2; */
+    font-size: 5rem;
+    color: #66BFBF;
+}
+
+.skill-row {
+    width: 50%;
+    text-align: left;
+    line-height: 2;
+    margin: 100px auto
+}
+
+.Bottom {
+
+    margin-top: 70px;
+    background-color: #11999E;
+    padding: 20px;
+}
+
+hr{
+    border: 0;
+    border-top: dotted #79ebeb 6px;
+    width: 4%;
+}
+
+.btn {
+    text-decoration: none;
+    transition: 0.4s;
+    position: relative;
+    top: 20px;
+    border: 1px solid #20e1c8;
+    padding: 5px;
+    background-image: linear-gradient(to right, #11cdd4, #11999e);
+    color: white;
+    border-radius: 8px;
+}
+
+.btn:hover {
+    background-color: #30e3cb;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bottomp {
+    color: #EAF6F6;
+    margin-bottom: 0;
+}
+
+.skills-img-2 {
+    width: 25%;
+    float: right;
+    margin-left: 30px;
+}
+
+
+
+.skills-img-1 {
+    width: 25%;
+    margin-right: 30px;
+    float: left;
+}
+
+.midp{
+    margin: 40px auto;
+    margin-bottom: 50px;
+    width: 60%;
+}
+
+.Mid {
+    padding: 20px;
+}
+
+
+a,
+h3 {
+    color: #11999E;
+    text-decoration: none;
+}
+
+.footer-link:hover{
+    color: #59c1c5;
+}
+
+.cloud2 {
+    position: absolute;
+}
+
+img {
+    display: inline-block;
+}
+
+.footer-link {
+    color: white;
+}
