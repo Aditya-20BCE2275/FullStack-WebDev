@@ -47,11 +47,39 @@ h1 {
 }
 
 .Timg {
-    position: relative;
-    width: 60%;
+    position: absolute;
+    width: 20%;
     transform: rotate(25deg);
-    top: 3%;
-    left: 14%;
+    right: 20%;
+    top: 20%;
+}
+
+.end {
+    display: block;
+    text-decoration: none;
+    font-size: large;
+    text-align: center;
+    color: white;
+}
+
+.bh:hover{
+    color: antiquewhite;
+}
+
+.end:hover {
+    color: antiquewhite;
+}
+
+@media (max-width : 991px) {
+
+    #title {
+        text-align: center;
+    }
+
+    .Timg {
+        position: inherit;
+        transform: rotate(0);
+    }
 }
 
 h3 {
