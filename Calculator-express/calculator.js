@@ -8,7 +8,7 @@ app.get("/", function (req, res) {
     res.sendFile(__dirname + "/index.html");
 });
 
-app.post("/", function (req, res) {
+app.post("/index.html", function (req, res) {
     var i1 = Number(req.body.num1);
     var i2 = Number(req.body.num2);
     var result = i1 + i2;
