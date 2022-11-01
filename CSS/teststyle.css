@@ -132,3 +132,17 @@ img {
 .footer-link {
     color: white;
 }
+
+.projs{
+    margin: 2px;
+}
+.projsa{
+    color: #40514e;
+    text-decoration: none;
+    display: inline-block;
+    padding: 2px;
+}
+
+.projsa:hover{
+    color: #20e1c8;
+}

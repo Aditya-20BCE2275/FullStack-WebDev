@@ -1,4 +1,2 @@
-$(document).keypress(function(event)
-{
-    $("h1").text(event.key);
-});
+var ok = document.querySelector("#pass");
+console.log(ok.innerText());
