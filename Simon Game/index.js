@@ -9,6 +9,10 @@ var started = false;
 
 var level = 0;
 
+var highsc = 0;
+
+var sc = 0;
+
 $(document).keypress(function () {
     if (!started) {
         $("#level-title").text("Level " + level);
@@ -53,15 +57,26 @@ function checkAnswer(index) {
             setTimeout(function () {
                 nextSequence();
             }, 1000);
+            sc++;
+            $(".temp").text("Current Score = "+sc);
+            if(sc > highsc)
+            {
+                highsc = sc;
+                $(".score").text("HighScore  = " + highsc);
+            }
         }
-
     }
     else {
         startOver();
+        sc = 0;
+        // $(".temp").text("Current Score = "+sc);
+
     }
 }
 
 function startOver() {
+    sc=0;
+    $(".temp").text("Current Score = "+sc);
     console.log("wrong");
     animatePress((gamePattern.length) - 1);
     $("#level-title").text("Wrong Answer - Game over");

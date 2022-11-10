@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            text-align: center;
+        }
+        .d1{
+            margin: 0 auto;
+            display: inline-block;
+            background-color: rgb(66, 175, 175);
+            height: 100px;
+            width: 200px;
+        }
+        .d2{
+            height: 100px;
+            width: 100px;
+            border-radius: 100%;
+        }
+        .d3{
+            height: 100px;
+            width: 100px;
+        }
+        .d5{
+            height: 100px;
+            width: 200px;
+            transform: skewX(-45deg);
+        }
+    </style>
+    <title>labFAT</title>
+</head>
+<body>
+    <h1>Shapes</h1><br>
+    <div class="d1 f"> </div><br><br>
+    <div class="d1 d2"> </div><br><br>
+    <div class="d1 d3"></div><br><br>
+    <div ><img class="d4" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Regular_triangle.svg/800px-Regular_triangle.svg.png" alt="triangle" width="200px" height="200px" style="display: inline-block;"></div><br>
+    <div class="d1 d5"> </div><br><br><br><br>
+    <div class="xz"></div>
+    <script>
+        var s1 = document.querySelector(".f");
+        var s2 = document.querySelector(".d2");
+        var s3 = document.querySelector(".d3");
+        var s4 = document.querySelector(".d4");
+        var s5 = document.querySelector(".d5");
+        s1.addEventListener('mouseover',function(){
+            document.querySelector(".xz").innerHTML = "Rectangle"; 
+        });
+        s2.addEventListener('mouseover',function(){
+            document.querySelector(".xz").innerHTML = "Circle"; 
+        });
+        s3.addEventListener('mouseover',function(){
+            document.querySelector(".xz").innerHTML = "square"; 
+        });
+        s4.addEventListener('mouseover',function(){
+            document.querySelector(".xz").innerHTML = "Triangle"; 
+        });
+        s5.addEventListener('mouseover',function(){
+            document.querySelector(".xz").innerHTML = "Rhombus"; 
+        });
+    </script>
+</body>
+</html>
