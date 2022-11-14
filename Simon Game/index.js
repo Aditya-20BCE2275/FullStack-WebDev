@@ -1,4 +1,3 @@
-
 var buttonColours = ["red", "blue", "green", "yellow"];
 
 var gamePattern = [];
@@ -14,93 +13,86 @@ var highsc = 0;
 var sc = 0;
 
 $(document).keypress(function () {
-    if (!started) {
-        $("#level-title").text("Level " + level);
-        nextSequence();
-        started = true;
-    }
+  if (!started) {
+    $("#level-title").text("Level " + level);
+    nextSequence();
+    started = true;
+  }
 });
 
 function nextSequence() {
-    userClickedPattern = [];
-    level++;
-    $("#level-title").text("Level " + level);
-    var randomNumber = Math.floor(Math.random() * 4);
-    var randomChosenColour = buttonColours[randomNumber];
-    gamePattern.push(randomChosenColour);
-    console.log(randomChosenColour);
-    animatePress(randomChosenColour);
-    playSound(randomChosenColour);
-
+  userClickedPattern = [];
+  level++;
+  $("#level-title").text("Level " + level);
+  var randomNumber = Math.floor(Math.random() * 4);
+  var randomChosenColour = buttonColours[randomNumber];
+  gamePattern.push(randomChosenColour);
+  console.log(randomChosenColour);
+  animatePress(randomChosenColour);
+  playSound(randomChosenColour);
 }
 
 $(".btn").click(function () {
+  var userChosenColour = $(this).attr("id");
+  userClickedPattern.push(userChosenColour);
 
-    var userChosenColour = $(this).attr("id");
-    userClickedPattern.push(userChosenColour);
+  playSound(userChosenColour);
+  animatePress(userChosenColour);
 
-    playSound(userChosenColour);
-    animatePress(userChosenColour);
+  console.log(userChosenColour);
 
-    console.log(userChosenColour)
-
-    checkAnswer(userClickedPattern.length - 1);
+  checkAnswer(userClickedPattern.length - 1);
 });
 
-
-
 function checkAnswer(index) {
-    if (userClickedPattern[index] === gamePattern[index]) {
-        console.log("Success");
+  if (userClickedPattern[index] === gamePattern[index]) {
+    console.log("Success");
 
-        if (userClickedPattern.length === gamePattern.length) {
-            setTimeout(function () {
-                nextSequence();
-            }, 1000);
-            sc++;
-            $(".temp").text("Current Score = "+sc);
-            if(sc > highsc)
-            {
-                highsc = sc;
-                $(".score").text("HighScore  = " + highsc);
-            }
-        }
+    if (userClickedPattern.length === gamePattern.length) {
+      setTimeout(function () {
+        nextSequence();
+      }, 1000);
+      sc++;
+      $(".temp").text("Current Score = " + sc);
+      if (sc > highsc) {
+        highsc = sc;
+        $(".score").text("HighScore  = " + highsc);
+      }
     }
-    else {
-        startOver();
-        sc = 0;
-        // $(".temp").text("Current Score = "+sc);
-
-    }
+  } else {
+    startOver();
+    sc = 0;
+    // $(".temp").text("Current Score = "+sc);
+  }
 }
 
 function startOver() {
-    sc=0;
-    $(".temp").text("Current Score = "+sc);
-    console.log("wrong");
-    animatePress((gamePattern.length) - 1);
-    $("#level-title").text("Wrong Answer - Game over");
-    level = 0;
-    started = false;
-    playSound("wrong");
-    $("body").addClass("game-over");
-    setTimeout(() => {
-        $("#level-title").text("Press any button to start");
-    }, 2000);
-    setTimeout(function () {
-        $("body").removeClass("game-over");
-    }, 200)
-    gamePattern = [];
+  sc = 0;
+  $(".temp").text("Current Score = " + sc);
+  console.log("wrong");
+  animatePress(gamePattern.length - 1);
+  $("#level-title").text("Wrong Answer - Game over");
+  level = 0;
+  started = false;
+  playSound("wrong");
+  $("body").addClass("game-over");
+  setTimeout(() => {
+    $("#level-title").text("Press any button to start");
+  }, 2000);
+  setTimeout(function () {
+    $("body").removeClass("game-over");
+  }, 200);
+  gamePattern = [];
 }
 
 function playSound(name) {
-    var audio = new Audio("sounds/" + name + ".mp3");
-    audio.play();
+  var audio = new Audio("sounds/" + name + ".mp3");
+  audio.play();
 }
 
 function animatePress(currentColor) {
-    $("#" + currentColor).addClass("pressed");
-    setTimeout(function () {
-        $("#" + currentColor).removeClass("pressed")
-    }, 300);
+  $("#" + currentColor).addClass("pressed");
+  setTimeout(function () {
+    $("#" + currentColor).removeClass("pressed");
+  }, 300);
 }
