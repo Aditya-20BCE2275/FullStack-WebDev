@@ -43,9 +43,9 @@ function makesound(key) {
             var sound = new Audio("sounds/snare.mp3");
             sound.play();
             break;
-        default:
-            alert("Something went wrong pls try again later");
-            break;
+        // default:
+        //     alert("Something went wrong pls try again later");
+        //     break;
     }
 }
 
