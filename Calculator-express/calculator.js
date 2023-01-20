@@ -2,7 +2,7 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const app = express();
 
-// app.use(bodyparser.urlencoded({ extended: true }));
+app.use(bodyparser.urlencoded({ extended: true }));
 
 app.get("/", function (req, res) {
     res.sendFile(__dirname + "/index.html");
@@ -12,8 +12,18 @@ app.post("/index.html", function (req, res) {
     var i1 = Number(req.body.num1);
     var i2 = Number(req.body.num2);
     var result = i1 + i2;
-    res.send("The answer of the following data is " + result);
-})
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.write("The answer of the following data is " + result);
+    res.write("<br>");
+    res.write("The answer of the following data is " + result);
+    res.write("<br>");
+    res.write("The answer of the following data is " + result);
+    res.write("<br>");
+    res.write("The answer of the following data is " + result);
+    res.write("<br>");
+    res.write(req.body.num1);
+    res.end();
+});
 
 app.post('/bmiCalculator', function (req, res) {
     var w = Number(req.body.num1);

@@ -17,8 +17,10 @@ app.post("/", (req, res) => {
     https.get(url, function (response) {
 
         console.log(response.statusCode);
-        if (response.statusCode <= 399 && response.statusCode > 100) {
-            response.on("data", function (data) {
+        if (response.statusCode <= 399 && response.statusCode > 100) 
+        {
+            response.on("data", function (data) 
+            {
                 const weatherData = JSON.parse(data);
                 const temp = weatherData.main.temp;
                 const feelsLike = weatherData.main.feels_like;
