@@ -27,7 +27,7 @@ app.post("/", function (req, res) {
             items.shift();
             res.redirect("/");
         }
-        if (i === "clear") {
+        else if (i === "clear") {
             items.length = 0;
             res.redirect("/");
         }

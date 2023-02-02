@@ -11,19 +11,24 @@
 </head>
 
 <body>
-    <h1>Today is <%= dayh %>  </h1>
-
-    <ul type="disc">
-        <%  for(var i=0;i<listi.length ; ++i) { %>
-            <li> <%=  listi[i] %> </li> 
-        <% } %> 
-    </ul>
-
-    <form action="/" method="post">
-        <label for="item"></label>
-        <input type="text" name="item" id="initem">
-        <input type="submit" name="button" value="Add">
-    </form>
+    <div class="box" id="heading">
+        <h1>Today is <%= dayh %>
+        </h1>
+    </div>
+    <div class="box">
+        <% for(var i=0;i<listi.length ; ++i) { %>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= listi[i] %></p>
+            </div>
+        <% } %>
+        <form action="/" method="post" class="item">
+            <label for="item"></label>
+            <input type="text" name="item" id="initem" placeholder="New Item" autocomplete="off">
+            <!-- <input type="submit" name="button" > -->
+            <button type="submit" name="button">+</button>
+        </form>
+    </div>
 </body>
 
 </html>
