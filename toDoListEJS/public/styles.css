@@ -10,6 +10,16 @@ h1 {
   padding: 10px;
 }
 
+h4{
+  color: #fff;
+  padding: 4px;
+  line-height: 1px;
+}
+
+h4:last-child{
+  padding-bottom: 15px;
+}
+
 .box {
   max-width: 400px;
   margin: 50px auto;
@@ -93,4 +103,14 @@ footer {
   color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover{
+  color: rgb(241, 196, 220);
+  font-size: 18px;
 }

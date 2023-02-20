@@ -1,0 +1,18 @@
+<%- include("partials/header") %>
+
+    <h1>Home</h1>
+    <p>
+        <%= homecontent %>
+    </p>
+    <% let a=arr %>
+        <% for(let x of a) {%>
+            <h1>
+                <%= x.postT %>
+            </h1>
+            <p>
+                <%= x.post.substring(0,100) + " ..." %>
+                    <%let link="/posts/" +x.postT %>
+                        <a href=<%= link %>>learn more</a>
+            </p>
+            <% } %>
+                <%- include("partials/footer") %>

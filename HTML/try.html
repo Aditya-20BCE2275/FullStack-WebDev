@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Force-Directed Graph</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+
+<body>
+    <svg width="2000" height="1400"></svg>
+    <script>
+        const data = {
+            "nodes": [
+                { "id": "Alice", "group": 1 },
+                { "id": "Bob", "group": 2 },
+                { "id": "Charlie", "group": 1 },
+                { "id": "Dave", "group": 2 },
+                { "id": "Eve", "group": 1 },
+                { "id": "Frank", "group": 2 },
+                { "id": "Grace", "group": 1 },
+                { "id": "Heidi", "group": 2 }
+            ],
+            "links": [
+                { "source": "Alice", "target": "Bob", "value": 1 },
+                { "source": "Alice", "target": "Charlie", "value": 1 },
+                { "source": "Alice", "target": "Dave", "value": 1 },
+                { "source": "Bob", "target": "Charlie", "value": 1 },
+                { "source": "Bob", "target": "Eve", "value": 1 },
+                { "source": "Charlie", "target": "Dave", "value": 1 },
+                { "source": "Eve", "target": "Frank", "value": 1 },
+                { "source": "Frank", "target": "Grace", "value": 1 },
+                { "source": "Grace", "target": "Heidi", "value": 1 },
+                { "source": "Heidi", "target": "Bob", "value": 1 }
+            ]
+        };
+
+        const width = 60;
+        const height = 40;
+
+        const svg = d3.select("svg")
+            .attr("viewBox", [0, 0, width, height]);
+
+        // const simulation = d3.forceSimulation(data.nodes)
+        //     .force("link", d3.forceLink(data.links).id(d => d.id).distance(50))
+        //     .force("charge", d3.forceManyBody().strength(-50))
+        //     .force("center", d3.forceCenter(width / 2, height / 2));
+
+        const link = svg.append("g")
+            .selectAll("line")
+            .data(data.links)
+            .join("line")
+            .attr("stroke", "#999")
+            .attr("stroke-opacity", 0.6)
+            .attr("stroke-width", d => Math.sqrt(d.value));
+
+        const node = svg.append("g")
+            .selectAll("circle")
+            .data(data.nodes)
+            .join("circle")
+            .attr("r", 10)
+            .attr("fill", d => d.group === 1 ? "red" : "blue")
+            .call(drag(simulation));
+
+        node.append("title")
+            .text(d => d.id);
+
+        const simulation = d3.forceSimulation(data.nodes)
+            .force("link", d3.forceLink(data.links).id(d => d.id).distance(50))
+            .force("charge", d3.forceManyBody().strength(-50))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .on("tick", tick);
+
+        function tick() {
+            link.attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
+
+            node.attr("cx", d => d.x)
+                .attr("cy", d => d.y);
+        }
+
+        simulation.on("tick", () => {
+            link.attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
+            node.attr("cx", d => d.x)
+                .attr("cy", d => d.y);
+        });
+    </script>
+</body>
+
+</html>

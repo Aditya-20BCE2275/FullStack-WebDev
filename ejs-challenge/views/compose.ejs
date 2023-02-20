@@ -1,0 +1,15 @@
+<%- include("partials/header") %>
+    <h1>Compose</h1>
+    <form method="post" action="/compose">
+        <div class="form-group">
+            <label for="inputTitle">Title</label>
+            <input type="text" class="form-control" id="inputTitle" name="postTitle">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group">
+            <label for="inputText">Post</label>
+            <textarea name="textarea" class="form-control" id="inputText" name="post" rows="5" cols="10"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Publish</button>
+    </form>
+<%- include("partials/footer") %>
