@@ -61,6 +61,18 @@ app.get("/posts/:postName", function (req, res) {
   }
 });
 
+app.get("/posts", function (req, res) {
+  if(posts.length === 0)
+  {
+    console.log("There are no posts available");
+    res.redirect("/");
+  }
+  for(let y of posts)
+  {
+    console.log(y);
+  }
+});
+
 app.get("/contact", function (req, res) {
   res.render("contact", { contact: contactContent });
 });

@@ -19,25 +19,27 @@ const fruitSchema = new mongoose.Schema({
 const Fruit = new mongoose.model("Fruit", fruitSchema);
 
 const fruit = new Fruit({
-    name: "Apple",
-    rating: 7,
-    review: "Pretty solid as a fruit"
+    name: "Kiwi",
+    rating: 10,
+    review: "Kiwi ftw"
 });
 
-fruit.save();
+// fruit.save();
 
 const peopleSchema = new mongoose.Schema({
     name: String,
     adhaarId: Number,
-    address: String
+    address: String,
+    favoriteFruit: fruitSchema
 });
 
 const Person = new mongoose.model("Person", peopleSchema);
 
 const person = new Person({
-    name: "john",
+    name: "Amy",
     adhaarId: 27082002,
-    address: "Sukhshanti soc, sector 10 , Airoli, Navi Mumbai - 400708"
+    address: "Sukhshanti soc, sector 10 , Airoli, Navi Mumbai - 400708",
+    favoriteFruit: fruit
 });
 
 // person.save();
@@ -55,22 +57,24 @@ const ok1 = new Person({
 const ok2 = new Person({
     name: "Ekjot",
     adhaarId: 93204823,
-    address: "Vadodra, Gujrat , India"
+    address: "Vadodra, Gujrat , India",
 });
 
-// Person.insertMany([ok,ok1,ok2],function (err) {
-//     if(err)
-//     {
-//         console.log("error occured");
-//     }    
-//     else
-//     {
-//         console.log("Successfully saved people");
-//     }
-// });
+ok2.newfeild = "im trying ";
+
+Person.insertMany([ok,ok1,ok2],function (err) {
+    if(err)
+    {
+        console.log("error occured");
+    }    
+    else
+    {
+        console.log("Successfully saved people");
+    }
+});
 
 
-// Person.updateOne({ name: "Harsh" }, { address: "VIT Vellore Sadly" }, (err) => {
+// Person.updateOne({ name: "Ekjot" }, { favoriteFruit: fruit }, (err) => {
 //     if (err) {
 //         console.log(err);
 //     }
@@ -96,7 +100,7 @@ Person.find(function (err, persons) {
     else {
         // mongoose.connection.close();
         for (let x of persons) {
-            console.log(x.name);
+            console.log(x.newfeild);
         }
     }
 });
